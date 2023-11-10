@@ -86,19 +86,21 @@ Carga2 = np.array([[1, 0], [Yc2, 1]])
 Carga3 = np.array([[1, 0], [Yc3, 1]])
 
 #Paralelo das linhas 1 e 2
+A = ((LT1[0,0]*LT2[0,1])+(LT2[0,0]*LT1[0,1])/(LT1[0,1]+LT2[0,1]))
+B= (LT1[0,1]*LT2[0,1])/(LT1[0,1]+LT2[0,1])
+C = (LT1[1,0]+LT2[1,0]+((LT1[0,0]-LT2[0,0])*(LT2[1,1]-LT1[1,1])))/(LT1[0,1]+LT2[0,1])
+D = ((LT2[0,1]*LT1[1,1])+(LT1[0,1]*LT2[1,1]))/(LT1[0,1]+LT2[0,1])
 
-PLT12 = np.array([[((LT1[0,0]*LT2[0,1])+(LT2[0,0]*LT1[0,1])/(LT1[0,1]+LT2[0,1])), (LT1[0,1]*LT2[0,1])/(LT1[0,1]+LT2[0,1])], [(LT1[1,0]+LT2[1,0]+((LT1[0,0]-LT2[0,0])*(LT2[1,1]-LT1[1,1])))/(LT1[0,1]+LT2[0,1]), ((LT2[0,1]*LT1[1,1])+(LT1[0,1]*LT2[1,1]))/(LT1[0,1]+LT2[0,1])]])
+PLT12 = np.array([[A, B], [C, D]])
 
 
 
 #Cascata dos quadripólos
+Cascata = Carga_Serie@ T1@ PLT12@ Carga1@ LT3@ T2@ Carga2@ LT4@ T3@ Carga3
 
-Cascata1 = np.matmul(Carga_Serie,T1)
-Cascata2 = np.matmul(Cascata1,PLT12)
-Cascata3 = np.matmul(Cascata2,Carga1)
-Cascata4 = np.matmul(Cascata3,LT3)
-Cascata5 = np.matmul(Cascata4,T2)
-Cascata6 = np.matmul(Cascata5,Carga2)
-Cascata7 = np.matmul(Cascata6,LT4)
-Cascata8 = np.matmul(Cascata7,T3)
-Cascata_Final = np.matmul(Cascata8,Carga3)
+Saida = np.array([[69000],[complex(106.31, -0.52)]])
+
+Entrada = Cascata@ Saida
+
+print(Entrada)
+
