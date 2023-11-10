@@ -47,17 +47,18 @@ YLT120 = 120*complex(0, 2*pi*60*CLT) #S
 #Parametros das cargas em derivacao
 Rc1 = 8000 #Ohm
 Lc1 = -41 #Henry
-Zc1 = complex((Rc1),(2*pi*60*Lc1)) #S
-Yc1 = 1/Zc1
+Zc1 = complex((Rc1),(2*pi*60*Lc1)) #Ohm
+Yc1 = 1/Zc1 #S
 
 Rc2 = 1350.55 #Ohm
 Lc2 = -7.83 #Henry
-Yc2 = complex((Rc2),(2*pi*60*Lc2)) #S
-
+Zc2 = complex((Rc2),(2*pi*60*Lc2)) #Ohm
+Yc2 = 1/Zc2 #S
 
 Rc3 = 649 #Ohm
 Lc3 = -3.2 #Henry
-Yc3 = complex((1/Rc3),(1/2*pi*60*Lc3)) #S
+Zc3 = complex((Rc3),(2*pi*60*Lc3)) #Ohm
+Yc3 = 1/Zc3 #S
 
 #Matriz da carga em serie
 Carga_Serie = ([[1, Zf], [0, 1]])
@@ -101,5 +102,3 @@ Cascata6 = np.matmul(Cascata5,Carga2)
 Cascata7 = np.matmul(Cascata6,LT4)
 Cascata8 = np.matmul(Cascata7,T3)
 Cascata_Final = np.matmul(Cascata8,Carga3)
-
-print(Yc1)
