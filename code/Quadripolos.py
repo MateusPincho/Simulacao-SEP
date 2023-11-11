@@ -46,17 +46,17 @@ YLT120 = 120*complex(0, 2*pi*60*CLT) #S
 
 #Parametros das cargas em derivacao
 Rc1 = 8000 #Ohm
-Lc1 = -41 #Henry
+Lc1 = 41 #Henry
 Zc1 = complex((Rc1),(2*pi*60*Lc1)) #Ohm
 Yc1 = 1/Zc1 #S
 
 Rc2 = 1350.55 #Ohm
-Lc2 = -7.83 #Henry
+Lc2 = 7.83 #Henry
 Zc2 = complex((Rc2),(2*pi*60*Lc2)) #Ohm
 Yc2 = 1/Zc2 #S
 
 Rc3 = 649 #Ohm
-Lc3 = -3.2 #Henry
+Lc3 = 3.2 #Henry
 Zc3 = complex((Rc3),(2*pi*60*Lc3)) #Ohm
 Yc3 = 1/Zc3 #S
 
@@ -83,7 +83,7 @@ Carga2 = np.array([[1, 0], [Yc2, 1]])
 Carga3 = np.array([[1, 0], [Yc3, 1]])
 
 #Paralelo das linhas 1 e 2
-A = ((LT1[0,0]*LT2[0,1])+(LT2[0,0]*LT1[0,1])/(LT1[0,1]+LT2[0,1]))
+A = ((LT1[0,0]*LT2[0,1])+(LT2[0,0]*LT1[0,1]))/(LT1[0,1]+LT2[0,1])
 B= (LT1[0,1]*LT2[0,1])/(LT1[0,1]+LT2[0,1])
 C = (LT1[1,0]+LT2[1,0]+((LT1[0,0]-LT2[0,0])*(LT2[1,1]-LT1[1,1])))/(LT1[0,1]+LT2[0,1])
 D = ((LT2[0,1]*LT1[1,1])+(LT1[0,1]*LT2[1,1]))/(LT1[0,1]+LT2[0,1])
@@ -97,5 +97,4 @@ Saida = np.array([[69000],[complex(106.31, -0.52)]])
 
 Entrada = Cascata@ Saida
 
-print(Entrada)
-
+print(LT1)
