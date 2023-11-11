@@ -74,9 +74,6 @@ LT2 = np.array([[(YLT80/2)*(ZLT80)+1, ZLT80], [((4*YLT80)+(ZLT80)*(YLT80**2))/4,
 LT3 = np.array([[(YLT80/2)*(ZLT80)+1, ZLT80], [((4*YLT80)+(ZLT80)*(YLT80**2))/4, 1+((ZLT80*YLT80)/2)]])
 
 LT4= np.array([[(YLT120/2)*(ZLT120)+1, ZLT120], [((4*YLT120)+(ZLT120)*(YLT120**2))/4, 1+((ZLT120*YLT120)/2)]])
-LT5 = np.array([[(YLT120/2)*(ZLT120)+1, ZLT120], [((4*YLT120)+(ZLT120)*(YLT120**2))/4, 1+((ZLT120*YLT120)/2)]])
-
-LT6 = np.array([[(YLT100/2)*(ZLT100)+1, ZLT100], [((4*YLT100)+(ZLT100)*(YLT100**2))/4, 1+((ZLT100*YLT100)/2)]])
 
 #Matrizes das cargas em derivacao
 Carga1 = np.array([[1, 0], [Yc1, 1]])
@@ -92,8 +89,6 @@ C = (LT1[1,0]+LT2[1,0]+((LT1[0,0]-LT2[0,0])*(LT2[1,1]-LT1[1,1])))/(LT1[0,1]+LT2[
 D = ((LT2[0,1]*LT1[1,1])+(LT1[0,1]*LT2[1,1]))/(LT1[0,1]+LT2[0,1])
 
 PLT12 = np.array([[A, B], [C, D]])
-
-
 
 #Cascata dos quadripólos
 Cascata = Carga_Serie@ T1@ PLT12@ Carga1@ LT3@ T2@ Carga2@ LT4@ T3@ Carga3
