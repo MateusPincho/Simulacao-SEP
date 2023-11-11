@@ -85,7 +85,7 @@ Carga3 = np.array([[1, 0], [Yc3, 1]])
 #Paralelo das linhas 1 e 2
 A = ((LT1[0,0]*LT2[0,1])+(LT2[0,0]*LT1[0,1]))/(LT1[0,1]+LT2[0,1])
 B= (LT1[0,1]*LT2[0,1])/(LT1[0,1]+LT2[0,1])
-C = (LT1[1,0]+LT2[1,0]+((LT1[0,0]-LT2[0,0])*(LT2[1,1]-LT1[1,1])))/(LT1[0,1]+LT2[0,1])
+C = (LT1[1,0]+LT2[1,0]+(((LT1[0,0]-LT2[0,0])*(LT2[1,1]-LT1[1,1]))))/(LT1[0,1]+LT2[0,1])
 D = ((LT2[0,1]*LT1[1,1])+(LT1[0,1]*LT2[1,1]))/(LT1[0,1]+LT2[0,1])
 
 PLT12 = np.array([[A, B], [C, D]])
@@ -97,4 +97,4 @@ Saida = np.array([[69000],[complex(106.31, -0.52)]])
 
 Entrada = Cascata@ Saida
 
-print(LT1)
+print(PLT12)
