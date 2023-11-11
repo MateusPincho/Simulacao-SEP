@@ -1,8 +1,8 @@
-# Modelagem: Sistema Elétrico de Potência 💡
+# Sistema Elétrico de Potência 💡
 
 Repositório dedicado ao desenvolvimento ao projeto de modelagem e simulação de um **Sistema Elétrico de Potência**, da matéria de Circuitos Elétricos II do curso de Engenharia Elétrica da UFCG.
 
-A resolução será composta de um *Notebook Jupyter* para modelar e simular os componentes do sistema, utilizando as bibliotecas *NumPy*, *SciPy* e *Plotly*.
+A resolução será composta de um *Notebook Jupyter* para modelar e simular os componentes do sistema, utilizando a biblioteca *NumPy*.
 
 Os integrantes desse grupo são:
 
